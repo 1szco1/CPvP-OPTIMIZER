@@ -9,7 +9,7 @@ A lightweight, client-side Fabric mod for Minecraft 1.16.5 that optimizes compet
 ## Features
 
 ### Anchor Optimizer
-- **Zero-Ping Mode**: Instantly hides the anchor when it explodes so you can place another block immediately ~ no waiting for server confirmation.
+- **Zero-Ping Mode**: Instantly hides the anchor when it explodes so you can place another block immediately — no waiting for server confirmation.
 - **Fake Anchor Mode**: Replaces the exploded anchor with a client-side fake anchor that is replaceable like tall grass/ferns.
 - **Glowstone Optimizer**: Prevents wasting glowstone on fully-charged anchors that are about to explode.
 - **Ghost Anchor Fix**: Automatically cleans up laggy ghost anchors that appear due to desync.
@@ -69,7 +69,7 @@ Edit `.minecraft/config/cpvpoptimizer.json`. All features can be enabled or disa
 ## Building
 
 ### Requirements
-- Java 17 (for building ~ the mod targets Java 8 for MC 1.16.5)
+- Java 17 (for building — the mod targets Java 8 for MC 1.16.5)
 - Gradle 7.6 (included wrapper)
 
 ### Steps
@@ -140,7 +140,7 @@ Edit `.minecraft/config/cpvpoptimizer.json`:
 | `crystalPlacementPrediction` | Show crystals instantly on placement |
 | `crystalBreakPrediction` | Remove crystals instantly on hit |
 | `smartCrystalHiding` | Skip fake crystal when player is above block |
-| `ghostBlockFix` | THE MAIN FEATURE ~ instant block placement |
+| `ghostBlockFix` | THE MAIN FEATURE — instant block placement |
 | `ghostBlockSoundFix` | Play placement sound immediately |
 | `explosionOptimizer` | Enable explosion lag reduction |
 | `explosionParticleReduction` | % of explosion particles to remove (0-100) |
@@ -164,4 +164,4 @@ Inspired by:
 
 ## License
 
-MIT License : feel free to share, modify, and distribute.
+MIT License — feel free to share, modify, and distribute.

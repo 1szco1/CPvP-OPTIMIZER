@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "cpvpoptimizer",
+  "version": "${version}",
+  "name": "CPvP Optimizer",
+  "description": "Client-side CPvP optimizer for 1.16.5 by sz_co (@1szco1). Anchor zero-ping, crystal optimizer, ghost block fix, explosion brightness fix, and explosion lag reducer.",
+  "authors": ["sz_co (@1szco1)"],
+  "contact": {
+    "homepage": "https://github.com/",
+    "sources": "https://github.com/"
+  },
+  "license": "MIT",
+  "icon": "assets/cpvpoptimizer/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.anchoropti.AnchorOptimizerClient"
+    ]
+  },
+  "mixins": [
+    "cpvpoptimizer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "minecraft": "1.16.5",
+    "fabric": "*"
+  }
+}
