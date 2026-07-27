@@ -69,7 +69,7 @@ Edit `.minecraft/config/cpvpoptimizer.json`. All features can be enabled or disa
 ## Building
 
 ### Requirements
-- Java 17 (for building — the mod targets Java 8 for MC 1.16.5)
+- Java 17 (for building ~ the mod targets Java 8 for MC 1.16.5)
 - Gradle 7.6 (included wrapper)
 
 ### Steps
