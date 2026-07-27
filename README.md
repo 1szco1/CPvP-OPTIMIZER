@@ -1,110 +1,106 @@
+# CPvP Optimizer 1.16.5
 
+**Created by sz_co (@1szco1)**
 
-**The first combined Anchor + Crystal Optimizer for Minecraft 1.16.5 Fabric**
-
-Created by **sz_co** (@1szco1)
-
----
-
-## What is CPvP Optimizer?
-
-CPvP Optimizer is a **100% client-side** Fabric mod for Minecraft 1.16.5 that eliminates the visual and input lag you experience during competitive Crystal PvP. It combines anchor optimization, crystal optimization, ghost block fixing, explosion brightness fixing, and explosion lag reduction ~ all in one lightweight mod.
-
-Unlike other mods that only fix one thing, CPvP Optimizer handles the **entire CPvP chain**: anchors, crystals, blocks, explosions, and lighting.
-
----
-
-## How It Works
-
-### The Problem
-
-When you play on a server with ping (even 20-50ms), your client waits for the server to confirm every action before showing it on screen:
-
-- **Anchor explosions**: You click a charged anchor, but the block stays visible for a split second before disappearing ~ you can't place your next block immediately.
-- **Crystal placement**: You right-click to place a crystal, but it doesn't appear until the server sends the entity spawn packet ~ making chaining feel sluggish.
-- **Crystal breaking**: You left-click a crystal, but it stays rendered for a moment ~ you can't tell if your hit registered.
-- **Ghost blocks**: You place a block, it appears for a frame, then vanishes waiting for server confirmation ~ then reappears. This makes block clutching and chaining nearly impossible on high ping.
-- **Explosion light lag**: When explosions destroy blocks, Minecraft's light engine recalculates lighting block-by-block, causing massive stutters and dark spots.
-- **Explosion particles**: TNT, anchors, beds, and crystals spawn hundreds of particles that tank your FPS during chain reactions.
-
-### The Solution
-
-CPvP Optimizer predicts these actions **client-side** and applies them instantly, before the server even responds. When the server finally confirms (or corrects) the action, the mod seamlessly updates to match. You get zero-ping responsiveness without actually having zero ping.
+A lightweight, client-side Fabric mod for Minecraft 1.16.5 that optimizes competitive PvP gameplay. Combines anchor optimization, crystal optimization, ghost block fixing, explosion lag reduction, and explosion brightness fixing into one allowed mod.
 
 ---
 
 ## Features
 
 ### Anchor Optimizer
-| Feature | Description |
-|---------|-------------|
-| **Zero-Ping Removal** | Instantly removes respawn anchors when they explode. Place your next block immediately ~ no waiting for server confirmation. |
-| **Fake Anchor Mode** | Replaces exploded anchors with a client-side fake anchor that's instantly replaceable (like tall grass). Toggle in config. |
-| **Glowstone Optimizer** | Prevents wasting glowstone on fully-charged anchors that are about to explode. |
-| **Ghost Anchor Fix** | Automatically removes desynced anchors that reappear due to lag. |
+- **Zero-Ping Mode**: Instantly hides the anchor when it explodes so you can place another block immediately — no waiting for server confirmation.
+- **Fake Anchor Mode**: Replaces the exploded anchor with a client-side fake anchor that is replaceable like tall grass/ferns.
+- **Glowstone Optimizer**: Prevents wasting glowstone on fully-charged anchors that are about to explode.
+- **Ghost Anchor Fix**: Automatically cleans up laggy ghost anchors that appear due to desync.
 
 ### Crystal Optimizer (Marlow-style)
-| Feature | Description |
-|---------|-------------|
-| **Instant Crystal Break** | Crystals vanish the exact frame you left-click them. Know immediately that your hit registered. |
-| **Instant Crystal Placement** | Crystals appear instantly when you place them. Chain crystals as fast as you can click. |
-| **Smart Crystal Hiding** | When a player is standing above the block you're placing a crystal on, the mod skips spawning the fake prediction entity. The crystal would be hidden anyway, so this avoids unnecessary entity overhead that slows down rapid placement on normal blocks. |
-| **Server Correction** | When the server sends the real crystal entity, the fake one is seamlessly replaced. If the server rejects your placement, it's corrected automatically. |
+- **Instant Crystal Removal**: End crystals vanish the moment you left-click them. Zero-ping crystal breaking.
+- **Instant Crystal Placement**: Crystals appear immediately when you place them.
+- **Smart Crystal Hiding**: When a player is standing above the block you're placing a crystal on, the mod skips spawning the fake crystal entity. The crystal would be hidden/occluded anyway, so this avoids unnecessary entity overhead that can slow down rapid placement on normal blocks.
+- **Server Correction**: When the server confirms the real crystal, the fake one is seamlessly replaced.
 
-### Ghost Block Fix
-| Feature | Description |
-|---------|-------------|
-| **Instant Block Placement** | Blocks appear the moment you place them ~ no disappearing, no reappearing. |
-| **Placement Sound** | The placement sound plays immediately for tactile feedback. |
-| **Server Correction** | If the server rejects your placement, the block is corrected without any visual glitch. |
+### Ghost Block Fix (The Main Feature)
+- **Instant Block Placement**: When you place a block, it appears immediately on your screen without waiting for the server.
+- **No More Disappearing Blocks**: Blocks no longer vanish for a split second when chaining anchors, crystals, or block clutching.
+- **Immediate Sound**: Placement sound plays instantly for responsive feedback.
+- **Server Correction**: If the server rejects the placement, the block is corrected automatically.
 
 ### Explosion Brightness Fix
-| Feature | Description |
-|---------|-------------|
-| **Instant Light Updates** | After any explosion near you, forces the light engine to recalculate all blocks in radius immediately. No more stutters or dark spots from gradual light updates. |
+- **No More Light Lag**: When an explosion destroys blocks near you, Minecraft's light engine tries to recalculate lighting gradually, causing stutters and dark spots. This fix forces immediate light updates for all blocks around you after an explosion, eliminating the lag from light recalculation.
 
 ### Explosion Lag Reducer
-| Feature | Description |
-|---------|-------------|
-| **Particle Reduction** | Removes 75% of explosion particles (configurable). Massive FPS boost during crystal/anchor chain reactions. |
-| **Screen Shake Reduction** | Cuts explosion camera shake / damage tilt by 50%. See clearly during fights. |
-| **Smoke Reduction** | Removes lingering smoke particles from explosions. |
+- **Particle Reduction**: Reduces explosion particles by 75% (configurable). Massive FPS boost during crystal/anchor PvP.
+- **Screen Shake Reduction**: Reduces the camera shake / damage tilt from explosions by 50%.
+- **Smoke Reduction**: Removes lingering smoke particles from explosions.
 
 ---
 
-## Why It's Allowed (Tier-List Compliant)
+## FAQ
 
-CPvP Optimizer is **fully client-side** and does NOT:
-
+### Is this a cheat / hacked client?
+**No.** CPvP Optimizer is 100% client-side visual and prediction optimization. It does NOT:
 - Send any extra packets to the server
-- Modify hitboxes, reach, or attack speed
+- Change hitboxes or reach
 - Give you faster explosions server-side
-- Automate any actions (placing, breaking, clicking)
-- Modify damage calculation or knockback
-- Use any form of ESP, tracers, or wallhacks
-- Interfere with anti-cheat systems
+- Modify crystal break speed server-side
+- Automate anything
+- Give you any unfair gameplay advantage
 
-It only changes **what your client renders** and how it handles **local prediction**. The server has full authority ~ if the server rejects an action, the client is corrected. This is the same principle used by vanilla Minecraft's own block placement prediction (which is why blocks sometimes appear then disappear).
+It only changes what your client renders and how it handles block/entity placement prediction. All competitive CPvP servers allow client-side prediction mods like this.
 
-Most competitive CPvP servers (anarchy, crystal PvP, tier-list servers) explicitly allow client-side prediction mods. However, **always check your specific server's rules** if unsure.
+### Will I get banned for using this?
+This mod is designed to be fully client-side and compliant with tier-list rules. However, **always check your specific server's rules** before using any mod. Most competitive anarchy/CPvP servers (2b2t, Crystal PvP servers, etc.) allow client-side optimization mods. If in doubt, ask staff.
+
+### Does this work on servers with anti-cheat?
+Yes. Since the mod is purely client-side and does not send any modified packets, server anti-cheats cannot detect it. It only affects your local rendering.
+
+### Can I use this with other optimization mods?
+Yes. CPvP Optimizer is compatible with Sodium, Lithium, Phosphor, Iris, and other Fabric optimization mods.
+
+### Does this work in singleplayer?
+Yes, though the ghost block fix and crystal prediction are most noticeable on multiplayer servers with ping.
+
+### How do I toggle features?
+Edit `.minecraft/config/cpvpoptimizer.json`. All features can be enabled or disabled individually.
+
+---
+
+## Building
+
+### Requirements
+- Java 17 (for building — the mod targets Java 8 for MC 1.16.5)
+- Gradle 7.6 (included wrapper)
+
+### Steps
+```bash
+# 1. Install Java 17
+sdk install java 17.0.13-tem
+sdk use java 17.0.13-tem
+
+# 2. Set Java path in gradle.properties
+# org.gradle.java.home=/home/YOURNAME/.sdkman/candidates/java/17.0.13-tem
+
+# 3. Build
+./gradlew build
+```
+
+The compiled `.jar` will be in `build/libs/cpvp-optimizer-1.0.0.jar`.
 
 ---
 
 ## Installation
 
-### Requirements
-- Minecraft 1.16.5
-- [Fabric Loader](https://fabricmc.net/use/) for 1.16.5
-- [Fabric API](https://modrinth.com/mod/fabric-api) for 1.16.5
-
-### Steps
-1. Download and install Fabric Loader for 1.16.5
-2. Download Fabric API and place it in `.minecraft/mods/`
-3. Download `cpvp-optimizer-1.0.0.jar` and place it in `.minecraft/mods/`
+1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 1.16.5
+2. Download and install [Fabric API](https://modrinth.com/mod/fabric-api) for 1.16.5
+3. Put `cpvp-optimizer-1.0.0.jar` into your `.minecraft/mods/` folder
 4. Launch Minecraft
 
-### Config
-Edit `.minecraft/config/cpvpoptimizer.json` to toggle features:
+---
+
+## Config
+
+Edit `.minecraft/config/cpvpoptimizer.json`:
 
 ```json
 {
@@ -113,50 +109,44 @@ Edit `.minecraft/config/cpvpoptimizer.json` to toggle features:
   "glowstoneOptimizer": true,
   "removeGhostAnchors": true,
   "predictionTimeout": 20,
+
   "crystalOptimizer": true,
   "crystalPlacementPrediction": true,
   "crystalBreakPrediction": true,
   "smartCrystalHiding": true,
+
   "ghostBlockFix": true,
   "ghostBlockTimeout": 10,
   "ghostBlockSoundFix": true,
+
   "explosionOptimizer": true,
   "explosionParticleReduction": 75,
   "explosionSoundReduction": 50,
   "explosionScreenShake": true,
   "explosionSmokeReduction": true,
+
   "explosionBrightnessFix": true,
   "brightnessFixRadius": 16
 }
 ```
 
----
-
-## FAQ
-
-### Is this a cheat / hacked client?
-**No.** CPvP Optimizer is purely client-side visual and input prediction. It does not give you any gameplay advantage that a player with zero ping wouldn't already have. It doesn't modify packets, hitboxes, damage, or automate anything.
-
-### Will I get banned for using this?
-This mod is designed to be compliant with tier-list rules. Most competitive CPvP servers allow client-side prediction mods. However, **always check your specific server's rules** before using any mod. When in doubt, ask staff.
-
-### Does this work with anti-cheat?
-Yes. Since the mod is purely client-side and does not send modified packets, server anti-cheats cannot detect it. It only affects local rendering.
-
-### Can I use this with Sodium/Lithium/Iris?
-Yes. CPvP Optimizer is fully compatible with all major Fabric optimization mods.
-
-### Does this work in singleplayer?
-Yes, though the features are most noticeable on multiplayer servers with ping.
-
-### Why 1.16.5?
-1.16.5 is very old version for competitive Crystal PvP. Most Low-end CPvP players target this version. This is the **first mod to combine anchor optimization, crystal optimization, ghost block fixing, and explosion optimization** specifically for 1.16.5.
-
-### Can I disable specific features?
-Yes. Every feature can be toggled individually in the config file.
-
-### Does this work on Forge?
-No, this is a Fabric-only mod. A Forge port is not planned.
+| Option | Description |
+|--------|-------------|
+| `zeroPingMode` | Instantly remove anchor on explosion |
+| `fakeAnchorMode` | Use fake replaceable anchor instead of air |
+| `glowstoneOptimizer` | Prevent glowstone waste on full anchors |
+| `removeGhostAnchors` | Clean up desynced anchors |
+| `crystalOptimizer` | Enable crystal optimization |
+| `crystalPlacementPrediction` | Show crystals instantly on placement |
+| `crystalBreakPrediction` | Remove crystals instantly on hit |
+| `smartCrystalHiding` | Skip fake crystal when player is above block |
+| `ghostBlockFix` | THE MAIN FEATURE — instant block placement |
+| `ghostBlockSoundFix` | Play placement sound immediately |
+| `explosionOptimizer` | Enable explosion lag reduction |
+| `explosionParticleReduction` | % of explosion particles to remove (0-100) |
+| `explosionScreenShake` | Reduce camera shake from explosions |
+| `explosionBrightnessFix` | Force immediate light updates after explosions |
+| `brightnessFixRadius` | Radius around player for brightness fix |
 
 ---
 
@@ -165,21 +155,13 @@ No, this is a Fabric-only mod. A Forge port is not planned.
 **Created by sz_co (@1szco1)**
 
 Inspired by:
-- Hero's Anchor Optimizer
-- cutebow's Anchor Optimizer
-- Marlow's Crystal Optimizer
-- ClientSideCrystals
-
----
-
-## Socials
-
-- **YouTube**: [My YouTube Channel](https://youtube.com/@1szco1)
-- **Discord**: [MY Discord Profile](https://discord.com/users/1134017208410968064)
-
+- Hero's Anchor Optimizer (fake anchor / replaceable approach)
+- cutebow's Anchor Optimizer (zero-ping instant removal)
+- Marlow's Crystal Optimizer (client-side crystal removal)
+- ClientSideCrystals (instant crystal placement prediction)
 
 ---
 
 ## License
 
-MIT License - feel free to share, modify, and distribute. Give credit if you fork it.
+MIT License — feel free to share, modify, and distribute.
